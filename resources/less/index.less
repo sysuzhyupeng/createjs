@@ -1,0 +1,51 @@
+﻿@import "_reset.less";
+
+body {
+  background : black;
+}
+
+canvas {
+  position    : fixed;
+  width       : 1400px;
+  height      : 640px;
+  left        : 50%;
+  top         : 50%;
+  margin-left : -700px;
+  margin-top  : -320px;
+  background  : #000;
+  -webkit-transform-origin : center center;
+  -webkit-transform : scale(0.5, 0.5);
+}
+
+#page_cover {
+  position        : fixed;
+  left            : 0;
+  right           : 0;
+  top             : 0;
+  bottom          : 0;
+  background      : url(../img/pagecover.jpg) center center no-repeat;
+  background-size : cover;
+}
+
+#music_switch {
+  position : fixed;
+  width    : 30px;
+  height   : 30px;
+  right    : 20px;
+  top      : 20px;
+
+  &.rotate {
+    top    : auto;
+    right  : 20px;
+    bottom : 20px;
+    -webkit-transform : rotate(90deg);
+  }
+
+  background      : url(../img/music-off.png) center center no-repeat;
+  background-size : 100% 100%;
+
+  &.active {
+    background      : url(../img/music-on.png) center center no-repeat;
+    background-size : 100% 100%;
+  }
+}

@@ -33,11 +33,20 @@ var baseConfig = {
 			}]
 		}, {
 			//识别url，将png替换成base64
-			test: /\.svg$/,
+			test: /\.png$/,
 			use: [{
 				loader: 'url-loader',
 				query: {
-					limit: 10000
+					limit: 100000
+				}
+			}]
+		},{
+			//识别url，将jpg替换成base64
+			test: /\.jpg$/,
+			use: [{
+				loader: 'url-loader',
+				query: {
+					limit: 100000
 				}
 			}]
 		}]

@@ -5,8 +5,72 @@
 	<title>createjs</title>
 </head>
 <body>
-    <canvas id="demoCanvas" width="500" height="300"></canvas>
-	<script src="//cdn.bootcss.com/EaselJS/0.8.0/easeljs.min.js" charset="utf-8"></script>
+    <div id="preload_manifest" style="display:none;">
+	    <img data-src="resources/img/pagecover.jpg" data-id="pagecover" />
+	    <img data-src="resources/img/music-on.png" data-id="musicon" />
+	    <img data-src="resources/img/music-off.png" data-id="musicoff" />
+	    <!-- Background -->
+	    <img data-src="resources/img/homePage.jpg" data-id="homePage" />
+	    <img data-src="resources/img/treePage.jpg" data-id="treePage" />
+	    <img data-src="resources/img/flowerPage.jpg" data-id="flowerPage" />
+	    <!-- Guide page -->
+	    <img data-src="resources/img/flower.png" data-id="flower" />
+	    <img data-src="resources/img/dot.png" data-id="dot" />
+	    <img data-src="resources/img/optipwords.png" data-id="optipwords" />
+	    <img data-src="resources/img/handtip.png" data-id="handtip" />
+	    <!-- Home page -->
+	    <img data-src="resources/img/moon.png" data-id="moon" />
+	    <img data-src="resources/img/block1.png" data-id="block1" />
+	    <img data-src="resources/img/block2.png" data-id="block2" />
+	    <img data-src="resources/img/blockbig.png" data-id="blockbig" />
+	    <img data-src="resources/img/stair.png" data-id="stair" />
+	    <img data-src="resources/img/cloud1.png" data-id="cloud1" />
+	    <img data-src="resources/img/cloud2.png" data-id="cloud2" />
+	    <img data-src="resources/img/cloud3.png" data-id="cloud3" />
+	    <img data-src="resources/img/cloud4.png" data-id="cloud4" />
+	    <img data-src="resources/img/light.png" data-id="light" />
+	    <!-- Tree page -->
+	    <img data-src="resources/img/ground.png" data-id="ground" />
+	    <img data-src="resources/img/bigtree.png" data-id="bigtree" />
+	    <!-- Flower page -->
+	    <img data-src="resources/img/moonlight.png" data-id="moonlight" />
+	    <img data-src="resources/img/meteor.png" data-id="meteor" />
+	    <img data-src="resources/img/girllights.png" data-id="girllights" />
+	    <img data-src="resources/img/frontflower1.png" data-id="frontflower1" />
+	    <img data-src="resources/img/frontflower2.png" data-id="frontflower2" />
+	    <img data-src="resources/img/frontflower3.png" data-id="frontflower3" />
+	    <img data-src="resources/img/frontflower4.png" data-id="frontflower4" />
+	    <img data-src="resources/img/frontflower5.png" data-id="frontflower5" />
+	    <img data-src="resources/img/frontflower6.png" data-id="frontflower6" />
+
+	    <!-- Girl -->
+	    <img data-src="resources/img/girl.png" data-id="girl" />
+	    <!-- Words -->
+	    <img data-src="resources/img/p1w1.png" data-id="p1w1" />
+	    <img data-src="resources/img/p1w2.png" data-id="p1w2" />
+	    <img data-src="resources/img/p2w1.png" data-id="p2w1" />
+	    <img data-src="resources/img/p2w2.png" data-id="p2w2" />
+	    <img data-src="resources/img/p3w1.png" data-id="p3w1" />
+	    <img data-src="resources/img/p3w2.png" data-id="p3w2" />
+	    <img data-src="resources/img/p4w1.png" data-id="p4w1" />
+	    <img data-src="resources/img/p4w2.png" data-id="p4w2" />
+	    <img data-src="resources/img/p4w3.png" data-id="p4w3" />
+	    <!-- Tip -->
+	    <img data-src="resources/img/optipbtn.png" data-id="optipbtn" />
+	    <img data-src="resources/img/optipcircle.png" data-id="optipcircle" />
+	  </div>
+
+	  <canvas id="stage_canvas" width="1400" height="640"></canvas>
+
+	  <div style="display:none;">
+	    <audio src="data/music.mp3" preload autoplay loop></audio>
+	  </div>
+
+	  <a id="music_switch" class="active" href="javascript:;"></a>
+
+	  <div id="page_cover"></div>
+	<script src="app/easeljs.min.js"></script>
+ 	<script src="app/tweenjs.min.js"></script>
 	<script src="bundle.js"></script>
 </body>
 </html>
