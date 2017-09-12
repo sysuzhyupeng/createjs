@@ -4,12 +4,13 @@ require('./preloadjs.min.js');
 // require('./main.js');
 
 /*
-	EaselJS：用于 Sprites 、动画、向量和位图的绘制
-	TweenJS：用于做动画效果
+	EaselJS：用于 Sprites 、动画、向量和位图的绘制，
+	TweenJS：用于做动画效果，
+	PreloadJS：是一个用来管理和协调相关资源加载的类库，它可以方便的帮助你预先加载相关资源。
+
 	对于有频繁发生改变的物体，如果在每一处变化都刷新舞台的话，
 	代码会比较冗余，因此我们可以写一个 Tick 事件，在每一次 Tick 的时候 update 舞台。
 	 Tick 事件，每一次触发的频率是可以修改的。理想的帧频率是 60FPS。
-
 */
 
 
@@ -272,7 +273,10 @@ require('./preloadjs.min.js');
                 });
             }
 
-            // Create loader
+            /*
+            	LoadQueue类是预加​​载内容的主要API。 
+            	LoadQueue是负载管理器，它可以预载是单个文件或文件的队列。
+            */
             this._loader = new createjs.LoadQueue(false);
 
             // Bind events
@@ -394,7 +398,10 @@ require('./preloadjs.min.js');
         _FRAME_SPEED     : 0.05,
 
         _buildSprites: function() {
-
+        	/*
+        		从loader（从preloadjs封装的对象）中获取资源实例
+        	*/
+        	//Bitmap位图表示显示列表中的图像、画布或视频。位图可以被实例化，使用现有的HTML元素，或一个字符串
             this._flowerSprite1 = new createjs.Bitmap(loader.get('flower'));
             this._flowerSprite2 = new createjs.Bitmap(loader.get('flower'));
             this._flowerSprite3 = new createjs.Bitmap(loader.get('flower'));
@@ -413,12 +420,13 @@ require('./preloadjs.min.js');
             this._opTipWordsSprite = new createjs.Bitmap(loader.get('optipwords'));
 
             this._flowerContainer = new createjs.Container();
+            //把点和花瓣添加到容器中
             this._flowerContainer.addChild(this._flowerSprite1, this._flowerSprite2,
                     this._flowerSprite3, this._flowerSprite4, this._flowerSprite5,
                     this._flowerSprite6, this._flowerSprite7, this._dotSprite1,
                     this._dotSprite2, this._dotSprite3, this._dotSprite4,
                     this._dotSprite5, this._dotSprite6);
-
+            //Sprite显示一个帧或帧序列（即动画）从spritesheet实例。
             this._handTipSprite = new createjs.Sprite(new createjs.SpriteSheet({
                 images : [loader.get('handtip')],
                 frames : {
@@ -601,7 +609,7 @@ require('./preloadjs.min.js');
             return this;
         },
 
-        // Rotate the target flower and light the target dot
+        // 旋转花瓣和点
         _setRotate: function(index) {
 
             var arrFlower = [this._flowerSprite1, this._flowerSprite2,
@@ -611,7 +619,16 @@ require('./preloadjs.min.js');
                 arrDot = [this._dotSprite1, this._dotSprite2,
                     this._dotSprite3, this._dotSprite4,
                     this._dotSprite5, this._dotSprite6];
-
+            /*
+            	渐变类属性为单个目标渐变实例.实例方法可以链接,便于建设项目和测序:
+            	createjs.Tween.get(target)
+			    .wait(500)
+			    .to({alpha:0, visible:false}, 1000)
+			    .call(handleComplete);
+			    //最后可以call回调函数
+			    function handleComplete(){
+			    }
+            */
             createjs.Tween.get(arrFlower[index], {
                 loop : true
             }).to({
